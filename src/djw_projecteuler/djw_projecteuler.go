@@ -7,6 +7,10 @@
  */
 package djw_projecteuler
 
+/**
+ * these two are global variables (within this package namespace)
+ * @todo: refactor these into a more elegant solution
+ */
 var knownPrimeStatus map[uint64]bool
 var maxKnownPrimeStatus uint64
 
@@ -22,10 +26,12 @@ func IsPrime(input uint64) (bool) {
         return true
     }
     
+    // init our "prime cache" -- a map of { number -> isPrime }s
     if nil == knownPrimeStatus {
         knownPrimeStatus = make(map[uint64]bool)
         maxKnownPrimeStatus = 0
     }
+    // use the cache if we've already done IsPrime on this input
     if maxKnownPrimeStatus > input {
         return knownPrimeStatus[input]
     }

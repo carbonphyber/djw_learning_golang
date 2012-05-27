@@ -36,6 +36,7 @@ func main(){
     sum = 0
     for i = 1; i < *max_natural_number; i++ {
         if i % 3 == 0 || i % 5 == 0 {
+            fmt.Printf("multiple of 3 or 5: %d\n", i)
             sum += i
         }
     }
