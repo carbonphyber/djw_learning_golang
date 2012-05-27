@@ -11,7 +11,7 @@ Running the Solution
 From the root of the repo:
 
 ```
-go run problem0001/main.go --number=1000 ;
+go run problem0001/main.go --max=1000 ;
 ```
 
 Notes

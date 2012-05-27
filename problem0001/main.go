@@ -17,24 +17,24 @@ import (
  * https://projecteuler.net/problem=1
  */
 func main(){
-    var max_natural_number *uint64
+    var max_natural_number uint64
     var sum uint64
     var i uint64
     
-    max_natural_number = flag.Uint64("max", uint64(0), "Maximum natural number");
+    flag.Uint64Var(&max_natural_number, "max", uint64(0), "Maximum natural number");
     // now that all flags have been assigned, we can parse the CLI parameters
     flag.Parse()
     
     // make sure the CLI input is acceptable; if not error out with a helpful usage message
-    if (max_natural_number < unit64(1)) {
+    if (max_natural_number < uint64(1)) {
         fmt.Println("You must pass in a a maximum (Unsigned 64 integer)");
         return
     } else {
-        fmt.Printf("max_natural_number: %d\n", *max_natural_number)
+        fmt.Printf("max_natural_number: %d\n", max_natural_number)
     }
     
     sum = 0
-    for i = 1; i < *max_natural_number; i++ {
+    for i = 1; i < max_natural_number; i++ {
         if i % 3 == 0 || i % 5 == 0 {
             fmt.Printf("multiple of 3 or 5: %d\n", i)
             sum += i
