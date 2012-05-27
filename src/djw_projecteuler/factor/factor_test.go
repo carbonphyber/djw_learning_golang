@@ -19,7 +19,6 @@ type factorTest struct{
 }
 
 
-
 var factorTests = []factorTest {
     factorTest{uint64(0),  map[uint64]uint64{}},
     factorTest{uint64(1),  map[uint64]uint64{}},
@@ -44,6 +43,9 @@ var factorTests = []factorTest {
     factorTest{uint64(64), map[uint64]uint64{2:6}},
 }
 
+/**
+ * A serialization function that converts a "map[uint64]uint64" into a string that is normalized and easily comparable to other serialized "map[uint64]uint64"s
+ */
 func FactorsSerialize(theFactorsMap map[uint64]uint64) string {
     var returnValue string = ""
     var sortedFactors []string = make([]string, len(theFactorsMap))
@@ -77,5 +79,11 @@ func TestFactorize(t *testing.T) {
         if serializedV != serializedOut1 {
             t.Errorf("%d failed.  Returned: %s; expected %s", dt.in1, serializedV, serializedOut1)
         }
+    }
+}
+
+func BenchmarkFactorize(b *testing.B) { //benchmark function starts with "Benchmark" and takes a pointer to type testing.B
+    for i := uint64(0); i < uint64(b.N); i++ {
+        Factorize(i)
     }
 }

@@ -49,3 +49,9 @@ func TestPrime(t *testing.T) {
         }
     }
 }
+
+func BenchmarkIsPrime(b *testing.B) { //benchmark function starts with "Benchmark" and takes a pointer to type testing.B
+    for i := uint64(0); i < uint64(b.N); i++ {
+        IsPrime(i)
+    }
+}

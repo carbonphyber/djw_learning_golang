@@ -39,3 +39,9 @@ func TestPalindrome(t *testing.T) {
         }
     }
 }
+
+func BenchmarkIsPalindrome(b *testing.B) { //benchmark function starts with "Benchmark" and takes a pointer to type testing.B
+    for i := uint64(0); i < uint64(b.N); i++ {
+        IsPalindrome(i)
+    }
+}
