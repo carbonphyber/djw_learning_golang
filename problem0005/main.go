@@ -8,7 +8,7 @@
 package main
 
 import (
-    // "../src/djw_projecteuler/prime"
+    "../src/djw_projecteuler/factor"
     "flag"
     "fmt"
 )
@@ -16,26 +16,6 @@ import (
 var (
     debug bool
 )
-
-/**
- * @assert input is a valid uint64
- */
-func Factorize(input uint64) (map[uint64]uint64) {
-    var remainder uint64
-    var i uint64
-    var factors map[uint64]uint64
-    
-    factors = make(map[uint64]uint64)
-    remainder = input
-    for i = uint64(2); remainder > 1 && i <= input; i++ {
-        for ;remainder > 1 && remainder % i == uint64(0); {
-            remainder /= i
-            factors[i] += 1
-            if debug { fmt.Printf("%d is a factor, %d remainder\n", i, remainder) }
-        }
-    }
-    return factors
-}
 
 /**
  * https://projecteuler.net/problem=3
@@ -63,7 +43,7 @@ func main(){
     lowest_common_demoninator = uint64(1)
     for i := uint64(2); i < natural_number; i++ {
         if debug { fmt.Printf("factorizing this term: %d\n", i) }
-        theseFactors = Factorize(i)
+        theseFactors = factor.Factorize(i)
         for key, val := range theseFactors {
             if debug { fmt.Printf("%d => %d\n", key, val) }
             if theseFactors[key] > allFactors[key] {
