@@ -58,7 +58,7 @@ func main(){
     
     // make sure the CLI input is acceptable; if not error out with a helpful usage message
     if (natural_number < uint64(1)) {
-        fmt.Println("You must pass in a a number to factorize (Unsigned 64 integer)");
+        fmt.Println("You must pass in a number to factorize (Unsigned 64 integer)");
         return
     } else {
         if debug { fmt.Printf("factorizing this term: %d\n", natural_number) }

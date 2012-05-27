@@ -11,7 +11,6 @@ Running the Solution
 From the root of the repo:
 
 ```
-go build ./src/djw_projecteuler/;
 go run problem0003/main.go --number=600851475143 ;
 ```
 

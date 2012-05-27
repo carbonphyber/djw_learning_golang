@@ -30,7 +30,7 @@ func main(){
     
     // make sure the CLI input is acceptable; if not error out with a helpful usage message
     if (max_natural_number < uint64(1)) {
-        fmt.Println("You must pass in a a maximum (Unsigned 64 integer)");
+        fmt.Println("You must pass in a maximum (Unsigned 64 integer)");
         return
     } else {
         if debug { fmt.Printf("maximum term: %d\n", max_natural_number) }
