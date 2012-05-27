@@ -8,7 +8,7 @@
 package main
 
 import (
-    "../src/djw_projecteuler"
+    "../src/djw_projecteuler/prime"
     "flag"
     "fmt"
 )
@@ -34,7 +34,7 @@ func LargestPrimeFactor(input uint64) (uint64) {
             if debug { fmt.Printf("%d is a factor, %d remainder\n", i, remainder) }
             largestFactor = i
             if debug { fmt.Printf("%d", i) }
-            if djw_projecteuler.IsPrime(largestFactor) {
+            if prime.IsPrime(largestFactor) {
                 largestPrimeFactor = largestFactor
                 if debug { fmt.Printf(" (is prime)") }
             }
