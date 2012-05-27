@@ -43,7 +43,7 @@ func IsPrime(input uint64) (bool) {
     }
     
     // if input is evenly divisivble by any number between 1 and input (exclusive), it is not prime
-    for i = 2; i < halfOfInput; i++ {
+    for i = 2; i <= halfOfInput; i++ {
         iIsPrime = input % i == uint64(0)
         // write to our cache if we haven't already recorded a value
         if(i > maxKnownPrimeStatus) {
